@@ -1,36 +1,20 @@
 'use strict';
 
-const Input = require('..lib/input.js');
+const Input = require('../lib/input.js');
+const Notes = require('../lib/notes');
+const minimist = require('minimist');
 
-const badInputA = [];
-const badInputB = ['WRONG'];
-const badInputC = ['-b', 'WRONG'];
-const badInputD = ['-a', ''];
+const goodInput = ['-a', 'text'];
 
-const goodInput = ['-a', 'Notes here.'];
-
-describe('Handles bad input with grace and generosity. Nothing is fatal.', () => {
-  it ('handles empty input', () => {
-    let result = new Input(badInputA);
-    expect(result.valid()).toBeFalsy();
-  });
-  it ('handles wrong input', () => {
-    let result = new Input(badInputb);
-    expect(result.valid()).toBeFalsy();
-  });
-  it ('handles wrong flag', () => {
-    let result = new Input(badInputC);
-    expect(result.valid()).toBeFalsy();
-  });
-  it ('handles wrong data type', () => {
-    let result = new Input(badInputD);
-    expect(result.valid()).toBeFalsy();
-  });
+describe('add() outputs console log', () => {
+  it('handles good input for console log', () => {
+    let result = new Input(goodInput);
+    let newNotes = new Notes(result);
+    let creeper = jest.spyOn(global.console, 'log');
+    let add = jest.fn(newNotes.add());
+    add();
+    expect(creeper).toHaveBeenCalled();
+  })
 })
 
-describe('the module handles good input with grace and beauty and without gloating', () => {
-  it ('handles good input for -a flag', () => {
-    let results = new Input(goodInput);
-    expect(result.valid()).toBeTruthy();
-  });
-})
+
