@@ -1,0 +1,31 @@
+{
+  "name": "lab-01",
+  "version": "1.0.0",
+  "description": "notes",
+  "main": "index.js",
+  "bin": {
+    "notes": "./index.js"
+  },
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "start": "node index.js",
+    "lint": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randee-401-advanced-javascript/lab-01.git"
+  },
+  "author": "Randee Orion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randee-401-advanced-javascript/lab-01/issues"
+  },
+  "homepage": "https://github.com/randee-401-advanced-javascript/lab-01#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "jest": "^25.1.0",
+    "minimist": "^1.2.5"
+  }
+}
