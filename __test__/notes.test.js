@@ -13,7 +13,7 @@ describe('add() outputs console log', () => {
     let result = new Input(goodInput);
     let newNotes = new Notes(result);
     let creeper = jest.spyOn(global.console, 'log');
-    let add = jest.fn(newNotes.add());
+    let add = jest.fn(new Notes.add());
     add();
     expect(creeper).toHaveBeenCalled();
   })
