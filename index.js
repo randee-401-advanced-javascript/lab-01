@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-
 /**
  * / Request Handler (All Routes)
  * @param req
@@ -9,11 +8,22 @@
  */
 
 
+const mongoose = require('mongoose');
+const dbURL = 'mongodb://localhost:27017/newNotes';
+const Notes = require('./lib/notes');
+const Input = require('./lib/input')
 
-const Input = require('./lib/input.js');
-const Notes = require('./lib/notes.js')
 
-let parsedInput = new Input(process.argv.slice(2));
-let notes = new Notes(parsedInput);
+ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true});
 
-console.log('up and running');
+
+
+let args = process.argv.slice(2);
+
+let myInput = new Input(args);
+let myHandler = new Notes(myInput.command);
+
+
+
+
+
