@@ -12,7 +12,6 @@ const mongoose = require('mongoose');
 const dbURL = 'mongodb://localhost:27017/newNotes';
 const Notes = require('./lib/notes');
 const Input = require('./lib/input')
-// const Catagories = require('./models/catagories-schema.js');
 
 
  mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true});
